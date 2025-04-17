@@ -1,0 +1,29 @@
+package compose:lib@0.0.1;
+
+interface foo {
+    resource foo-resource{
+        constructor();
+        foo: func() -> string;
+    }
+}
+
+interface foo-bar {
+    use foo.{foo-resource};
+
+    resource foo-bar-resource{
+        constructor();
+        foo-bar: func(f: foo-resource) -> string;
+    }
+}
+
+// Just used to generate bindings
+world imports {
+    import foo;
+    import foo-bar;
+}
+
+// Just used to generate bindings
+world exports {
+    export foo;
+    export foo-bar;
+}

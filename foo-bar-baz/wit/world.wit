@@ -1,0 +1,9 @@
+package compose:socket@0.0.1;
+
+world foo-bar-baz {
+    // Required for TinyGo component build'
+    include hayride:wasip2/imports@0.0.41;
+
+    import compose:lib/foo@0.0.1;
+    import compose:lib/foo-bar@0.0.1;
+}

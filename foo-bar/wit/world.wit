@@ -1,0 +1,8 @@
+package compose:foo-bar@0.0.1;
+
+world foo-bar {
+    // Required for TinyGo component build
+    include hayride:wasip2/imports@0.0.41;
+
+    export compose:lib/foo-bar@0.0.1;
+}
