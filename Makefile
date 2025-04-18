@@ -19,6 +19,9 @@ wac-foo-bar:
 wac-foo-bar-baz:
 	wac plug foo-bar-baz.wasm --plug foo-bar-composed.wasm -o foo-bar-baz-composed.wasm
 
+compose:
+	wac compose compose.wac --dep my:foo=./foo.wasm --dep my:foo-bar=./foo-bar.wasm --dep my:foo-bar-baz=./foo-bar-baz.wasm -o composed.wasm
+
 gen-imports:
 	wit-bindgen-go generate --world compose:lib/imports --out ./gen/imports ./wit
 

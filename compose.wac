@@ -1,0 +1,15 @@
+// compose.wac
+package example:composition;
+
+let foo = new my:foo { ... };
+let foo-bar = new my:foo-bar {
+  foo: foo.foo,
+  ...
+};
+let foo-bar-baz = new my:foo-bar-baz {
+  foo: foo.foo,
+  foo-bar: foo-bar.foo-bar,
+  ...
+};
+
+export foo-bar-baz...;

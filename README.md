@@ -34,6 +34,32 @@ Caused by:
 make: *** [wac-foo-bar-baz] Error 1
 ```
 
+## SOLUTION
+
+Using a compose file and the `wac compose` command you can build this be providing the foo resource to each component separately:
+```
+// compose.wac
+package example:composition;
+
+let foo = new my:foo { ... };
+let foo-bar = new my:foo-bar {
+  foo: foo.foo,
+  ...
+};
+let foo-bar-baz = new my:foo-bar-baz {
+  foo: foo.foo,
+  foo-bar: foo-bar.foo-bar,
+  ...
+};
+
+export foo-bar-baz...;
+```
+
+Build with the compose command:
+```
+wac compose compose.wac --dep my:foo=./foo.wasm --dep my:foo-bar=./foo-bar.wasm --dep my:foo-bar-baz=./foo-bar-baz.wasm -o composed.wasm
+```
+
 ## Wit Deps
 
 wit-deps used to generate deps dir in each component:

@@ -12,7 +12,7 @@ interface foo-bar {
 
     resource foo-bar-resource{
         constructor();
-        foo-bar: func(f: foo-resource) -> string;
+        foo-bar: func(f: borrow<foo-resource>) -> string;
     }
 }
 

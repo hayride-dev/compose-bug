@@ -17,10 +17,11 @@ func constructorFunc() foobar.FooBarResource {
 }
 
 // func(self cm.Rep, f FooResource) (result string)
-func foobarFunc(self cm.Rep, f foobar.FooResource) string {
+func foobarFunc(self cm.Rep, f cm.Rep) string {
 	fooResource := foo.FooResource(f)
-
-	return fooResource.Foo() + "bar"
+	value := fooResource.Foo() + "bar"
+	fooResource.ResourceDrop()
+	return value
 }
 
 func main() {}

@@ -42,7 +42,7 @@ func NewFooBarResource() (result FooBarResource) {
 
 // FooBar represents the imported method "foo-bar".
 //
-//	foo-bar: func(f: foo-resource) -> string
+//	foo-bar: func(f: borrow<foo-resource>) -> string
 //
 //go:nosplit
 func (self FooBarResource) FooBar(f FooResource) (result string) {

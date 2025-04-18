@@ -40,7 +40,7 @@ func wasmexport_Constructor() (result0 uint32) {
 //export compose:lib/foo-bar@0.0.1#[method]foo-bar-resource.foo-bar
 func wasmexport_FooBarResourceFooBar(self0 uint32, f0 uint32) (result *string) {
 	self := cm.Reinterpret[cm.Rep]((uint32)(self0))
-	f := cm.Reinterpret[FooResource]((uint32)(f0))
+	f := cm.Reinterpret[cm.Rep]((uint32)(f0))
 	result_ := Exports.FooBarResource.FooBar(self, f)
 	result = &result_
 	return

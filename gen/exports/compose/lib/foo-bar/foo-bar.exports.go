@@ -22,7 +22,7 @@ var Exports struct {
 
 		// FooBar represents the caller-defined, exported method "foo-bar".
 		//
-		//	foo-bar: func(f: foo-resource) -> string
-		FooBar func(self cm.Rep, f FooResource) (result string)
+		//	foo-bar: func(f: borrow<foo-resource>) -> string
+		FooBar func(self cm.Rep, f cm.Rep) (result string)
 	}
 }
